@@ -1,0 +1,47 @@
+package TestFramework.POM;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import PageObject.HomePage;
+import PageObject.LoginPage;
+import Utilities.BaseTest;
+
+public class LoginTest extends BaseTest{
+	
+	@BeforeSuite
+	public void setup()
+	{
+		LaunchApp("chrome");
+	}
+	
+
+	@Test
+	public void ValidLogin() throws InterruptedException
+	{
+		
+		LoginPage lp = new LoginPage();
+		HomePage hp = new HomePage();
+		
+		lp.login();
+		hp.EnterCode();
+		
+		
+	}
+	
+	@Test
+	public void InvalidLogin() throws InterruptedException
+	{
+		driver.get("https://app-eu1.hubspot.com/login");
+		driver.findElement(By.id("username")).sendKeys("automationtestacademy1234@gmail.com");
+		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("Test@9999");
+		driver.findElement(By.id("loginBtn")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.id("code")).sendKeys("9999");
+		driver.quit();
+	}
+
+}

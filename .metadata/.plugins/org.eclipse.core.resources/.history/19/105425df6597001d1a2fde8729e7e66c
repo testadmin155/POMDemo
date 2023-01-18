@@ -1,0 +1,10 @@
+package PageObject;
+
+import org.openqa.selenium.By;
+
+public class HomePage {
+
+	//driver.findElement(By.id("code")).sendKeys("9999");
+	@FindBy(id="code")
+	WebElement Code;
+}

@@ -1,0 +1,17 @@
+package PageObject;
+
+import org.openqa.selenium.By;
+
+public class LoginPage {
+	
+	//driver.findElement(By.id("username")).sendKeys("automationtestacademy@gmail.com");
+	//PageFactory
+	@FindBy(id="username")
+	WebElement emailid;
+	
+	//driver.findElement(By.xpath("//input[@type='password']")).sendKeys("Test@9999");
+	
+	
+	//driver.findElement(By.id("loginBtn")).click();
+
+}
